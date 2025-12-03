@@ -1,0 +1,46 @@
+﻿@page
+@model WebAppPedidos.Pages.Pedidos.IndexModel
+
+<h1>Index</h1>
+
+<p>
+    <a asp-page="/Pedidos/Create">Create New</a>
+</p>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>@Html.DisplayNameFor(model => model.PedidoPagamento[0].Titulo)</th>
+            <th>@Html.DisplayNameFor(model => model.PedidoPagamento[0].Data)</th>
+            <th>@Html.DisplayNameFor(model => model.PedidoPagamento[0].ValorComIVA)</th>
+            <th>@Html.DisplayNameFor(model => model.PedidoPagamento[0].ValorSemIVA)</th>
+            <th>Documento</th>
+            <th></th>
+        </tr>
+    </thead>
+
+    <tbody>
+        @foreach (var item in Model.PedidoPagamento)
+        {
+            <tr>
+                <td>@Html.DisplayFor(modelItem => item.Titulo)</td>
+                <td>@Html.DisplayFor(modelItem => item.Data)</td>
+                <td>@Html.DisplayFor(modelItem => item.ValorComIVA)</td>
+                <td>@Html.DisplayFor(modelItem => item.ValorSemIVA)</td>
+
+                <td>
+                    @if (!string.IsNullOrEmpty(item.DocumentoUrl))
+                    {
+                        <a href="@item.DocumentoUrl" target="_blank">Abrir Documento</a>
+                    }
+                </td>
+
+                <td>
+                    <a asp-page="/Pedidos/Edit" asp-route-id="@item.Id">Edit</a> |
+                    <a asp-page="/Pedidos/Details" asp-route-id="@item.Id">Details</a> |
+                    <a asp-page="/Pedidos/Delete" asp-route-id="@item.Id">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

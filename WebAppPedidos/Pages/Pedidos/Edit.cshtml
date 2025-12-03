@@ -1,0 +1,53 @@
+﻿@page
+@model WebAppPedidos.Pages.Pedidos.EditModel
+
+
+
+<h1>Edit</h1>
+
+<h4>PedidoPagamento</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="PedidoPagamento.Id" />
+            <div class="form-group">
+                <label asp-for="PedidoPagamento.Titulo" class="control-label"></label>
+                <input asp-for="PedidoPagamento.Titulo" class="form-control" />
+                <span asp-validation-for="PedidoPagamento.Titulo" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="PedidoPagamento.Data" class="control-label"></label>
+                <input asp-for="PedidoPagamento.Data" class="form-control" />
+                <span asp-validation-for="PedidoPagamento.Data" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="PedidoPagamento.ValorComIVA" class="control-label"></label>
+                <input asp-for="PedidoPagamento.ValorComIVA" class="form-control" />
+                <span asp-validation-for="PedidoPagamento.ValorComIVA" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="PedidoPagamento.ValorSemIVA" class="control-label"></label>
+                <input asp-for="PedidoPagamento.ValorSemIVA" class="form-control" />
+                <span asp-validation-for="PedidoPagamento.ValorSemIVA" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="PedidoPagamento.DocumentoUrl" class="control-label"></label>
+                <input asp-for="PedidoPagamento.DocumentoUrl" class="form-control" />
+                <span asp-validation-for="PedidoPagamento.DocumentoUrl" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="./Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

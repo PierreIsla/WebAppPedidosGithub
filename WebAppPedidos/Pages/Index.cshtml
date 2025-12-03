@@ -1,0 +1,23 @@
+﻿@page
+@model WebAppPedidos.Pages.IndexModel
+@{
+    ViewData["Title"] = "Home";
+}
+
+<h1>WebAppPedidos</h1>
+
+<p class="lead">
+    Aplicação de gestão de pedidos com autenticação.
+</p>
+
+<p>
+    <a asp-page="/Login" class="btn btn-primary">Entrar</a>
+</p>
+
+@if (User.Identity?.IsAuthenticated ?? false)
+{
+    <p class="mt-3">
+        Já está autenticado como <strong>@User.Identity!.Name</strong>.
+        <a asp-page="/Pedidos/Index">Ir para Pedidos</a>
+    </p>
+}
